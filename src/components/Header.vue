@@ -3,7 +3,7 @@ import { ref } from "vue";
 const hamburg = ref(false);
 const hamburgerOn = () => {
   hamburg.value = !hamburg.value;
-  console.log(hamburg);
+  console.log(hamburg.value);
 };
 </script>
 
@@ -11,16 +11,6 @@ const hamburgerOn = () => {
   <header class="header">
     <div class="header-logo">
       <img src="../assets/prog-gris.png" alt="" />
-    </div>
-
-    <div
-      class="hamburger hamburger--spin"
-      @click="hamburgerOn"
-      :class="{ 'is-active': hamburg }"
-    >
-      <div class="hamburger-box">
-        <div class="hamburger-inner"></div>
-      </div>
     </div>
 
     <nav
@@ -34,6 +24,36 @@ const hamburgerOn = () => {
       <RouterLink to="/contact">Contact</RouterLink>
       <div class="animation start-home"></div>
     </nav>
+    <div>
+      <input type="checkbox" class="checkbox" id="checkbox" />
+      <label for="checkbox" class="checkbox-label">
+        <font-awesome-icon icon="fa-solid fa-sun" />
+        <font-awesome-icon icon="fa-solid fa-moon" />
+        <span class="ball"></span>
+      </label>
+    </div>
+
+    <div class="container-lang">
+      <img src="../assets/img/ing.png" alt="" />
+    </div>
+    <!-- <div>
+      <input type="checkbox" class="checkbox" id="checkbox" />
+      <label for="checkbox" class="checkbox-label">
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-moon"></i>
+        <span class="ball"></span>
+      </label>
+    </div> -->
+    <div
+      class="hamburger hamburger--spin"
+      @click="hamburgerOn"
+      :class="{ 'is-active': hamburg }"
+    >
+      <div class="hamburger-box">
+        <div class="hamburger-inner"></div>
+      </div>
+    </div>
+
     <!-- <nav class="header-nav">
         <ul class="nav-ul">
           <li><a href="#home">Home</a></li>
@@ -50,6 +70,8 @@ const hamburgerOn = () => {
 @import "../assets/hamburger.css";
 .header {
   display: flex;
+  // justify-content: center;
+  align-items: center;
   width: 100%;
   min-height: 70px;
   // height: 70px;
@@ -67,6 +89,7 @@ const hamburgerOn = () => {
   top: 69px;
   bottom: 0;
   transition: all 0.3s;
+  z-index: 999;
   transform: translate(-100%, 0);
 }
 .navigation-active {
@@ -77,6 +100,55 @@ const hamburgerOn = () => {
   a.router-link-exact-active {
     color: white;
   }
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox-label {
+  background-color: #111;
+  width: 50px;
+  height: 26px;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fa-moon {
+  color: #f1c40f;
+}
+
+.fa-sun {
+  color: #f39c12;
+}
+
+.checkbox-label .ball {
+  background-color: #fff;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+  transform: translateX(24px);
+}
+
+.container-lang {
+  width: 50px;
+  padding: 5px;
+}
+.container-lang img {
+  width: 100%;
 }
 
 .animation {
@@ -131,6 +203,52 @@ const hamburgerOn = () => {
   top: 235px;
 }
 
-.navigation a:hover {
+@media screen and (min-width: 800px) {
+  .navigation {
+    flex-direction: row;
+    transform: translate(0, 0);
+    position: relative;
+    top: 0px;
+  }
+  .hamburger {
+    display: none;
+  }
+
+  .navigation a.router-link-exact-active:nth-child(1) ~ .animation {
+    left: 145px;
+    top: 60px;
+  }
+
+  .navigation a.router-link-exact-active:nth-child(2) ~ .animation {
+    left: 300px;
+    top: 60px;
+  }
+
+  .navigation a.router-link-exact-active:nth-child(3) ~ .animation {
+    left: 370px;
+    top: 60px;
+  }
+
+  .navigation a.router-link-exact-active:nth-child(4) ~ .animation {
+    left: 435px;
+    top: 60px;
+  }
+  .navigation a:nth-child(1):hover ~ .animation {
+    left: 145px;
+    top: 60px;
+  }
+
+  .navigation a:nth-child(2):hover ~ .animation {
+    left: 300px;
+    top: 60px;
+  }
+  .navigation a:nth-child(3):hover ~ .animation {
+    left: 370px;
+    top: 60px;
+  }
+  .navigation a:nth-child(4):hover ~ .animation {
+    left: 435px;
+    top: 60px;
+  }
 }
 </style>
