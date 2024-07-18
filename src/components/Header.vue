@@ -10,7 +10,7 @@ const hamburgerOn = () => {
 <template>
   <header class="header">
     <div class="header-logo">
-      <img src="../assets/prog-gris.png" alt="" />
+      <img src="../assets/logo1.png" alt="" />
     </div>
 
     <nav
@@ -27,8 +27,8 @@ const hamburgerOn = () => {
     <div>
       <input type="checkbox" class="checkbox" id="checkbox" />
       <label for="checkbox" class="checkbox-label">
-        <font-awesome-icon icon="fa-solid fa-sun" />
-        <font-awesome-icon icon="fa-solid fa-moon" />
+        <!-- <font-awesome-icon icon="fa-solid fa-sun" />
+        <font-awesome-icon icon="fa-solid fa-moon" /> -->
         <span class="ball"></span>
       </label>
     </div>
@@ -36,14 +36,7 @@ const hamburgerOn = () => {
     <div class="container-lang">
       <img src="../assets/img/ing.png" alt="" />
     </div>
-    <!-- <div>
-      <input type="checkbox" class="checkbox" id="checkbox" />
-      <label for="checkbox" class="checkbox-label">
-        <i class="fas fa-sun"></i>
-        <i class="fas fa-moon"></i>
-        <span class="ball"></span>
-      </label>
-    </div> -->
+
     <div
       class="hamburger hamburger--spin"
       @click="hamburgerOn"
@@ -53,16 +46,6 @@ const hamburgerOn = () => {
         <div class="hamburger-inner"></div>
       </div>
     </div>
-
-    <!-- <nav class="header-nav">
-        <ul class="nav-ul">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about-me">About Me</a></li>
-          <li><a href="#Projects">Projects</a></li>
-          <li><a href="contact">Contact</a></li>
-          <div class="animation start-home"></div>
-        </ul>
-      </nav> -->
   </header>
 </template>
 
@@ -70,13 +53,22 @@ const hamburgerOn = () => {
 @import "../assets/hamburger.css";
 .header {
   display: flex;
-  // justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   min-height: 70px;
-  // height: 70px;
+
   background-color: $backgound-black;
   color: white;
+}
+
+.header-logo {
+  margin-left: 10px;
+  width: 150px;
+}
+.header-logo img {
+  width: 100%;
+  height: auto;
 }
 .navigation {
   background-color: $backgound-black;
@@ -204,51 +196,71 @@ const hamburgerOn = () => {
 }
 
 @media screen and (min-width: 800px) {
-  .navigation {
-    flex-direction: row;
-    transform: translate(0, 0);
-    position: relative;
-    top: 0px;
+  .header-logo {
+    margin-left: 20px;
+    width: 180px;
   }
+  .navigation {
+    background-color: initial;
+    display: initial;
+    flex-direction: initial;
+    width: initial;
+    // font-size: initial;
+    // text-align: initial;
+    position: initial;
+    top: initial;
+    bottom: initial;
+    transition: initial;
+    z-index: initial;
+    transform: initial;
+  }
+
+  // .navigation {
+  //   flex-direction: row;
+  //   transform: translate(0, 0);
+  //   position: initial;
+  //   // top: 0px;
+  // }
+
   .hamburger {
     display: none;
   }
 
   .navigation a.router-link-exact-active:nth-child(1) ~ .animation {
     left: 145px;
-    top: 60px;
+    top: 65px;
   }
 
   .navigation a.router-link-exact-active:nth-child(2) ~ .animation {
     left: 300px;
-    top: 60px;
+    top: 65px;
   }
 
   .navigation a.router-link-exact-active:nth-child(3) ~ .animation {
     left: 370px;
-    top: 60px;
+    top: 65px;
   }
 
   .navigation a.router-link-exact-active:nth-child(4) ~ .animation {
     left: 435px;
-    top: 60px;
+    top: 65px;
   }
   .navigation a:nth-child(1):hover ~ .animation {
     left: 145px;
-    top: 60px;
+    top: 65px;
   }
 
   .navigation a:nth-child(2):hover ~ .animation {
     left: 300px;
-    top: 60px;
+    top: 65px;
   }
   .navigation a:nth-child(3):hover ~ .animation {
     left: 370px;
-    top: 60px;
+    top: 65px;
   }
   .navigation a:nth-child(4):hover ~ .animation {
     left: 435px;
-    top: 60px;
+    top: 65px;
   }
 }
 </style>

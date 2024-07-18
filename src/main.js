@@ -1,20 +1,19 @@
 import "./sass/main.scss";
-// import "boxicons";
-
-/* import the fontawesome core */
-import { library } from "@fortawesome/fontawesome-svg-core";
-
-/* import font awesome icon component */
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
-import { faMoon } from "@fortawesome/free-solid-svg-icons";
-import { faSun } from "@fortawesome/free-solid-svg-icons";
-// Agrega los iconos que necesitas usar
-library.add(faCoffee, faMoon, faSun);
+// import "tailwindcss/tailwind.css";
 
 import { createApp } from "vue";
+
 import App from "./App.vue";
 import router from "./router";
+
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+
+import "@fortawesome/fontawesome-free/css/all.css";
+
+library.add(faMoon, faSun);
 
 const app = createApp(App);
 app.component("font-awesome-icon", FontAwesomeIcon);
